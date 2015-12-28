@@ -19,13 +19,13 @@ class Converter
         return $this;
     }
 
-    public function from(string $standard)
+    public function from($standard)
     {
         $this->from = $standard;
         return $this;
     }
 
-    public function to(string $standard)
+    public function to($standard)
     {
         $this->to = $standard;
         return $this;
