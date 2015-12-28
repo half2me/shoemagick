@@ -14,6 +14,10 @@ class Converter
     private $conversionTable = 'Nike'; // Conversion Table to use
     private $from;
     private $to;
+    
+    public function __construct(){
+        return $this;
+    }
 
     public function from(string $standard)
     {
