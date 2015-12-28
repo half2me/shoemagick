@@ -18,11 +18,13 @@ class Converter
     public function from(string $standard)
     {
         $this->from = $standard;
+        return $this;
     }
 
     public function to(string $standard)
     {
         $this->to = $standard;
+        return $this;
     }
 
     public function convert($size = null, $gender = null)
