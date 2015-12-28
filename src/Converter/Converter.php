@@ -34,13 +34,13 @@ class Converter
                         return $size;
                     case 'eu':
                         if(strcasecmp($gender,'Men')==0 || strcasecmp($gender,'Unisex')==0){
-                            return $this->usTable['Men'][$size];
+                            return @$this->usTable['Men'][$size];
                         }
                         if(strcasecmp($gender,'Women')==0){
-                            return $this->usTable['Women'][$size];
+                            return @$this->usTable['Women'][$size];
                         }
                         if(strcasecmp($gender,'Girls')==0 || strcasecmp($gender,'Boys')==0){
-                            return $this->usTable['Children'][$size];
+                            return @$this->usTable['Children'][$size];
                         }
                         break;
                 }
@@ -85,10 +85,31 @@ class Converter
             '18'    => 50.5,
         ],
         'Women' => [
-
+            '4'     => 34.5,
+            '4.5'   => 35,
+            '5'     => 35.5,
+            '5.5'   => 36,
+            '6'     => 36.5,
+            '6.5'   => 37.5,
+            '7'     => 38,
+            '7.5'   => 38.5,
+            '8'     => 39,
+            '8.5'   => 40,
+            '9'     => 40.5,
+            '9.5'   => 41,
+            '10'    => 42,
+            '10.5'  => 42.5,
+            '11'    => 43,
         ],
         'Children' => [
-
+            '3.5Y'  => 35.5,
+            '4Y'    => 36,
+            '4.5Y'  => 36.5,
+            '5Y'    => 37.5,
+            '5.5Y'  => 38,
+            '6Y'    => 38.5,
+            '6.5Y'  => 39,
+            '7Y'    => 40,
         ],
     ];
 }
