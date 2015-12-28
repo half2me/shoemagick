@@ -39,13 +39,13 @@ class Converter
                     case 'us':
                         return $size;
                     case 'eu':
-                        if(in_array(strtolower($gender), ['men', 'mens', 'unisex', 'none']) {
+                        if(in_array(strtolower($gender), ['men', 'mens', 'unisex', 'none'])) {
                                 return @$this->usTable['Men'][$size];
                         }
-                        if(in_array(strtolower($gender), ['women', 'womens', 'lady', 'ladies']) {
+                        if(in_array(strtolower($gender), ['women', 'womens', 'lady', 'ladies'])) {
                             return @$this->usTable['Women'][$size];
                         }
-                        if(in_array(strtolower($gender), ['girl', 'girls', 'boy', 'boys', 'children', 'child', 'chld', 'chd', 'cld', 'young', 'yng']) {
+                        if(in_array(strtolower($gender), ['girl', 'girls', 'boy', 'boys', 'children', 'child', 'chld', 'chd', 'cld', 'young', 'yng'])) {
                             return @$this->usTable['Children'][$size];
                         }
                         break;
