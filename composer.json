@@ -1,9 +1,9 @@
 {
 	"name": "half2me/shoemagick",
-	"type": "cakephp-plugin",
+	"type": "library",
 	"description": "Library for working with shoes",
-	"keywords": ["cakephp","size","size converter","shoe", "converter"],
-	"homepage": "http://github.com/half2me/shoemagick",
+	"keywords": ["size","size converter","shoe", "converter"],
+	"homepage": "https://github.com/half2me/shoemagick",
 	"license": "MIT",
 	"autoload": {
 	    "psr-4": {
@@ -18,5 +18,13 @@
 	},
 	"extra": {
 		"installer-name": "ShoeMagick"
-	}
+	},
+	"authors": [
+		{
+			"name": "Benjamin Tamasi",
+			"email": "h@lfto.me",
+			"homepage": "http://lfto.me",
+			"role": "Developer"
+		}
+	]
 }
