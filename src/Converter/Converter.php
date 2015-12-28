@@ -48,6 +48,7 @@ class Converter
             case 'eu':
                 switch($this->to) {
                     case 'us':
+                        return array_search($size, @$this->usTable[$gender]);
                         break;
                     case 'eu':
                         return $size;
