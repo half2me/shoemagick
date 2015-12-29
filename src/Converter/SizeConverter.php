@@ -65,7 +65,7 @@ class SizeConverter
     private function keywordSearch($needle, $haystack)
     {
         foreach($haystack as $piece) {
-            if(stripos($piece, $needle) !== false) {
+            if(stripos($piece, $needle) !== false || stripos($needle, $piece) !== false) {
                 return true;
             }
         }
@@ -75,6 +75,7 @@ class SizeConverter
     private $usTable = [
         'Men' => [
             'gender_keywords' => [
+                'men',
                 'mens',
                 'unisex',
                 'none'
@@ -109,6 +110,7 @@ class SizeConverter
         ],
         'Women' => [
             'gender_keywords' => [
+                'women',
                 'womens',
                 'lady',
                 'ladies'
@@ -133,11 +135,14 @@ class SizeConverter
         ],
         'Children' => [
             'gender_keywords' => [
+                'girl',
                 'girls',
+                'boy',
                 'boys',
+                'child',
                 'children',
                 'chld',
-                'chdren',
+                'chd',
                 'cld',
                 'young',
                 'yng'
