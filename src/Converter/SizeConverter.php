@@ -43,9 +43,9 @@ class SizeConverter
                                 return @$genderCategory['sizes'][$size];
                             }
                         }
-                        break;
+                        return '';
                 }
-                break;
+                return '';
             case 'eu':
                 switch($this->to) {
                     case 'us':
@@ -54,12 +54,13 @@ class SizeConverter
                                 return array_search($size, @$genderCategory['sizes']);
                             }
                         }
-                        break;
+                        return '';
                     case 'eu':
                         return $size;
                 }
-                break;
+                return '';
         }
+        return '';
     }
 
     private function keywordSearch($needle, $haystack)
