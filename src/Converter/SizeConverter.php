@@ -40,7 +40,9 @@ class SizeConverter
                     case 'eu':
                         foreach($this->usTable as $genderCategory) {
                             if($this->keywordSearch($gender, $genderCategory['gender_keywords'])) {
-                                return @$genderCategory['sizes'][$size];
+                                if(isset($genderCategory['sizes'][$size])) {
+                                    return $genderCategory['sizes'][$size];
+                                } else return '';
                             }
                         }
                         return '';
@@ -51,7 +53,8 @@ class SizeConverter
                     case 'us':
                         foreach($this->usTable as $genderCategory) {
                             if($this->keywordSearch($gender, $genderCategory['gender_keywords'])) {
-                                return array_search($size, @$genderCategory['sizes']);
+                                $size = array_search($size, @$genderCategory['sizes']);
+                                return $size ? $size : '';
                             }
                         }
                         return '';
