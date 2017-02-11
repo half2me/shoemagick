@@ -13,8 +13,9 @@ class SizeConverter
 {
     private $from;
     private $to;
-    
-    public function __construct(){
+
+    public function __construct()
+    {
         return $this;
     }
 
@@ -32,15 +33,15 @@ class SizeConverter
 
     public function convert($size = null, $gender = null)
     {
-        switch($this->from) {
+        switch ($this->from) {
             case 'us':
-                switch($this->to) {
+                switch ($this->to) {
                     case 'us':
                         return $size;
                     case 'eu':
-                        foreach($this->usTable as $genderCategory) {
-                            if($this->keywordSearch(strtolower($gender), $genderCategory['gender_keywords'])) {
-                                if(isset($genderCategory['sizes'][$size])) {
+                        foreach ($this->usTable as $genderCategory) {
+                            if ($this->keywordSearch(strtolower($gender), $genderCategory['gender_keywords'])) {
+                                if (isset($genderCategory['sizes'][$size])) {
                                     return $genderCategory['sizes'][$size];
                                 } else return '';
                             }
@@ -49,10 +50,10 @@ class SizeConverter
                 }
                 return '';
             case 'eu':
-                switch($this->to) {
+                switch ($this->to) {
                     case 'us':
-                        foreach($this->usTable as $genderCategory) {
-                            if($this->keywordSearch(strtolower($gender), $genderCategory['gender_keywords'])) {
+                        foreach ($this->usTable as $genderCategory) {
+                            if ($this->keywordSearch(strtolower($gender), $genderCategory['gender_keywords'])) {
                                 $size = array_search($size, @$genderCategory['sizes']);
                                 return $size ? $size : '';
                             }
@@ -68,8 +69,8 @@ class SizeConverter
 
     private function keywordSearch($needle, $haystack)
     {
-        foreach($haystack as $piece) {
-            if(stripos($piece, $needle) !== false || stripos($needle, $piece) !== false) {
+        foreach ($haystack as $piece) {
+            if (stripos($piece, $needle) !== false || stripos($needle, $piece) !== false) {
                 return true;
             }
         }
@@ -85,31 +86,31 @@ class SizeConverter
                 'none'
             ],
             'sizes' => [
-                '4'     => '36',
-                '4.5'   => '36.5',
-                '5'     => '37.5',
-                '5.5'   => '38',
-                '6'     => '38.5',
-                '6.5'   => '39',
-                '7'     => '40',
-                '7.5'   => '40.5',
-                '8'     => '41',
-                '8.5'   => '42',
-                '9'     => '42.5',
-                '9.5'   => '43',
-                '10'    => '44',
-                '10.5'  => '44.5',
-                '11'    => '45',
-                '11.5'  => '45.5',
-                '12'    => '46',
-                '12.5'  => '47',
-                '13'    => '47.5',
-                '13.5'  => '48',
-                '14'    => '48.5',
-                '15'    => '49',
-                '16'    => '49.5',
-                '17'    => '50',
-                '18'    => '50.5',
+                '4' => '36',
+                '4.5' => '36.5',
+                '5' => '37.5',
+                '5.5' => '38',
+                '6' => '38.5',
+                '6.5' => '39',
+                '7' => '40',
+                '7.5' => '40.5',
+                '8' => '41',
+                '8.5' => '42',
+                '9' => '42.5',
+                '9.5' => '43',
+                '10' => '44',
+                '10.5' => '44.5',
+                '11' => '45',
+                '11.5' => '45.5',
+                '12' => '46',
+                '12.5' => '47',
+                '13' => '47.5',
+                '13.5' => '48',
+                '14' => '48.5',
+                '15' => '49',
+                '16' => '49.5',
+                '17' => '50',
+                '18' => '50.5',
             ]
         ],
         'Women' => [
@@ -120,21 +121,21 @@ class SizeConverter
                 'ladies'
             ],
             'sizes' => [
-                '4'     => '34.5',
-                '4.5'   => '35',
-                '5'     => '35.5',
-                '5.5'   => '36',
-                '6'     => '36.5',
-                '6.5'   => '37.5',
-                '7'     => '38',
-                '7.5'   => '38.5',
-                '8'     => '39',
-                '8.5'   => '40',
-                '9'     => '40.5',
-                '9.5'   => '41',
-                '10'    => '42',
-                '10.5'  => '42.5',
-                '11'    => '43',
+                '4' => '34.5',
+                '4.5' => '35',
+                '5' => '35.5',
+                '5.5' => '36',
+                '6' => '36.5',
+                '6.5' => '37.5',
+                '7' => '38',
+                '7.5' => '38.5',
+                '8' => '39',
+                '8.5' => '40',
+                '9' => '40.5',
+                '9.5' => '41',
+                '10' => '42',
+                '10.5' => '42.5',
+                '11' => '43',
             ]
         ],
         'Children' => [
@@ -181,25 +182,25 @@ class SizeConverter
                 '12.5C' => '29.5',
                 '13C' => '31',
                 '13.5C' => '31.5',
-                '11Y'  => '28',
-                '11.5Y'  => '28.5',
-                '12Y'  => '29',
-                '12.5Y'  => '29.5',
-                '13Y'  => '31',
-                '13.5Y'  => '31.5',
-                '1Y'  => '32',
-                '1.5Y'  => '33',
-                '2Y'  => '33.5',
-                '2.5Y'  => '34',
-                '3Y'  => '35',
-                '3.5Y'  => '35.5',
-                '4Y'    => '36',
-                '4.5Y'  => '36.5',
-                '5Y'    => '37.5',
-                '5.5Y'  => '38',
-                '6Y'    => '38.5',
-                '6.5Y'  => '39',
-                '7Y'    => '40',
+                '11Y' => '28',
+                '11.5Y' => '28.5',
+                '12Y' => '29',
+                '12.5Y' => '29.5',
+                '13Y' => '31',
+                '13.5Y' => '31.5',
+                '1Y' => '32',
+                '1.5Y' => '33',
+                '2Y' => '33.5',
+                '2.5Y' => '34',
+                '3Y' => '35',
+                '3.5Y' => '35.5',
+                '4Y' => '36',
+                '4.5Y' => '36.5',
+                '5Y' => '37.5',
+                '5.5Y' => '38',
+                '6Y' => '38.5',
+                '6.5Y' => '39',
+                '7Y' => '40',
             ]
         ],
     ];
